@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Madan Supermarket Bill Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Madan Supermarket Bill Generator</h1>
+        <form action="/generate_bill" method="post">
+            <div class="item-list">
+                {% for item, price in items.items() %}
+                <div class="item">
+                    <label>{{ item }} ({{ price }})</label>
+                    <input type="number" name="{{ item }}" value="0">
+                </div>
+                {% endfor %}
+            </div>
+            <button type="submit">Generate Bill</button>
+        </form>
+    </div>
+</body>
+</html>

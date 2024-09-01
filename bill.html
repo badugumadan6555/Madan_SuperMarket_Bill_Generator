@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supermarket Bill</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Supermarket Bill</h1>
+        <table border="1">
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            {% for item in bill %}
+            <tr>
+                <td>{{ item.item }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="2">Total:</td>
+                <td>{{ total }}</td>
+            </tr>
+        </table>
+        <button onclick="window.print()">Print Bill</button>
+    </div>
+</body>
+</html>
